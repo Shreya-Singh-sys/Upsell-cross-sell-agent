@@ -1,0 +1,23 @@
+[
+  {
+    "id": "prod_1",
+    "name": "Mechanical Keyboard",
+    "price": 2500,
+    "category": "Electronics",
+    "cross_sell": ["prod_2"]
+  },
+  {
+    "id": "prod_2",
+    "name": "Ergonomic Wrist Rest",
+    "price": 500,
+    "category": "Accessories",
+    "cross_sell": []
+  },
+  {
+    "id": "prod_3",
+    "name": "Wireless Gaming Mouse",
+    "price": 1800,
+    "category": "Electronics",
+    "cross_sell": ["prod_2"]
+  }
+]
