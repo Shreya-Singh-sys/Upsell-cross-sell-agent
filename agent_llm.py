@@ -49,9 +49,9 @@ class RealGeminiAgentExecutor:
             temperature=0
         )
 
-        # Call Gemini 3.6 Flash
+        # Call Gemini 2.5 Flash
         response = client.models.generate_content(
-            model="gemini-3.6-flash",
+            model="gemini-3.1-flash-lite",
             contents=user_input,
             config=config
         )
@@ -72,7 +72,7 @@ class RealGeminiAgentExecutor:
 
             # Follow up with tool result
             followup_response = client.models.generate_content(
-                model="gemini-3.6-flash",
+                model="gemini-3.1-flash-lite",
                 contents=[
                     user_input,
                     response.candidates[0].content,
