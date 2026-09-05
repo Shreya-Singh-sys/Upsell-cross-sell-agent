@@ -374,6 +374,28 @@ st.markdown("""
 
     /* Hide default Streamlit padding */
     .block-container { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+
+    /* Custom Styled Clear Audit Ledger Button */
+    div[data-testid="stButton"] button {
+        background: linear-gradient(135deg, rgba(218, 54, 51, 0.2) 0%, rgba(139, 0, 0, 0.3) 100%) !important;
+        color: #f85149 !important;
+        border: 1px solid rgba(218, 54, 51, 0.4) !important;
+        border-radius: 8px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.3px !important;
+        padding: 8px 16px !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 2px 8px rgba(218, 54, 51, 0.15) !important;
+    }
+
+    div[data-testid="stButton"] button:hover {
+        background: linear-gradient(135deg, #da3633 0%, #a81c19 100%) !important;
+        color: #ffffff !important;
+        border-color: #f85149 !important;
+        box-shadow: 0 4px 14px rgba(218, 54, 51, 0.4) !important;
+        transform: translateY(-1px);
+}
     </style>
 """, unsafe_allow_html=True)
 
@@ -409,6 +431,9 @@ col_chat, col_audit = st.columns([3, 2], gap="medium")
 # --- RIGHT COLUMN: Real-Time Audit Ledger ---
 with col_audit:
     st.markdown("### 🛡️ Real-Time Audit Ledger")
+    if st.button("🗑️ Clear Audit Ledger", use_container_width=True):
+        audit_log.clear()
+        st.rerun()
     
     # Top Quick Metrics
     m1, m2 = st.columns(2)
