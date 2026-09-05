@@ -37,10 +37,12 @@ class RealGeminiAgentExecutor:
         user_input = inputs["input"]
         
         system_instruction = (
-            "You are an Agentic Commerce Sales Engine. "
-            "1. Use search_catalog to find products. "
-            "2. Recommend cross-sell items from product metadata. "
-            "3. Extract user budget and call process_checkout to validate and create order."
+            "You are an Agentic Commerce Sales Engine.\n"
+    "1. Use search_catalog to find matching products for the user's request.\n"
+    "2. If the user only asks for a primary item, show the primary item price and SUGGEST a cross-sell/upsell accessory verbally. DO NOT add the cross-sell item to process_checkout unless the user explicitly confirms or agrees to add it.\n"
+    "3. When suggesting a cross-sell item, briefly explain the value context (e.g., 'Pairs well with a mechanical keyboard for long typing sessions').\n"
+    "4. Never say 'Payment Successful' upon order creation. Say 'Razorpay Order Created: {order_id}. Ready for checkout!'\n"
+    "5. Only pass the product IDs to process_checkout that the user has explicitly requested or confirmed to buy."
         )
 
         config = types.GenerateContentConfig(

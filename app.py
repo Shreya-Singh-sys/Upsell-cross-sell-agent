@@ -249,6 +249,16 @@ with col_audit:
         
     st.write("")
     audit_container = st.empty()
+    # app.py - Merchant Revenue Impact Card
+    st.markdown("""
+            <div style="background-color:#161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px 16px; margin-bottom: 15px;">
+            <div style="font-size: 11px; color: #8b949e; text-transform: uppercase; font-weight: bold;">📈 Merchant Impact Metrics</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <span style="font-size: 13px; color: #c9d1d9;">AOV Boost (Cross-sell):</span>
+            <span style="font-size: 14px; font-weight: bold; color: #2ea043;">+₹500 Revenue</span>
+            </div>
+            </div>
+            """, unsafe_allow_html=True)
 
 def render_audit_trail():
     with audit_container.container():
@@ -274,6 +284,7 @@ def render_audit_trail():
         st.markdown('</div>', unsafe_allow_html=True)
 
 render_audit_trail()
+
 
 # --- LEFT COLUMN: Chat Interface ---
 with col_chat:
